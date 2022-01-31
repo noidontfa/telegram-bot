@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = get_env("SECRET_KEY", "a secret key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = get_env("DEBUG", True)
 
 ALLOWED_HOSTS = ["*"]
 
@@ -81,8 +81,12 @@ WSGI_APPLICATION = "telebot.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": get_env("DATABASE_NAME"),
+        "USER": get_env("DATABASE_USERNAME"),
+        "PASSWORD": get_env("DATABASE_PASSWORD"),
+        "HOST": get_env("DATABASE_HOST", "127.0.0.1"),
+        "PORT": get_env("DATABASE_PORT", "5432"),
     }
 }
 
