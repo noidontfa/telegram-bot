@@ -1,3 +1,4 @@
+pre-commit
 Django==3.2.11
 python_telegram_bot==13.10
 googletrans==4.0.0rc1
