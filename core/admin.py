@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from core.models import Language, DefaultTranslation
+from core.models import DefaultTranslation, Language
 
 
 @admin.register(Language)

@@ -6,7 +6,7 @@ class Language(models.Model):
     code = models.CharField(max_length=10)
 
     def __str__(self):
-        return f'{self.code} - {self.name}'
+        return f"{self.code} - {self.name}"
 
 
 class DefaultTranslation(models.Model):
@@ -17,4 +17,4 @@ class DefaultTranslation(models.Model):
     dest_name = models.CharField(max_length=255, null=True, blank=True)
 
     def __str__(self):
-        return f'{self.user_id} - src: {self.src_name} - dest: {self.dest_name}'
+        return f"{self.user_id} - src: {self.src_name} - dest: {self.dest_name}"

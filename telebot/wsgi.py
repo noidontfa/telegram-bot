@@ -13,7 +13,7 @@ from django.core.wsgi import get_wsgi_application
 
 from core.bot import TranslationBot
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'telebot.settings')
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "telebot.settings")
 # start a bot
 TranslationBot().start()
 

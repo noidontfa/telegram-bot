@@ -1,8 +1,8 @@
+import logging
 from abc import ABC, abstractmethod
 from typing import Union
 
-from telegram.ext import Updater, CommandHandler, MessageHandler
-import logging
+from telegram.ext import CommandHandler, MessageHandler, Updater
 
 logger = logging.getLogger(__name__)
 

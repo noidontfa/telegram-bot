@@ -1,10 +1,17 @@
-from django.conf import settings
-from telegram.ext import CommandHandler, Filters, MessageHandler
 import logging
 
+from django.conf import settings
+from telegram.ext import CommandHandler, Filters, MessageHandler
+
 from core.bot_core import TelegramBot
-from core.bot_translation_func import hello, translate, default_translate, list_language, set_translation_default, \
-    get_translation_default
+from core.bot_translation_func import (
+    default_translate,
+    get_translation_default,
+    hello,
+    list_language,
+    set_translation_default,
+    translate,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -22,11 +29,11 @@ class TranslationBot(TelegramBot):
 
     @classmethod
     def hello_command(cls) -> CommandHandler:
-        return CommandHandler('hello', hello)
+        return CommandHandler("hello", hello)
 
     @classmethod
     def translate_command(cls) -> CommandHandler:
-        return CommandHandler('translate', translate)
+        return CommandHandler("translate", translate)
 
     @classmethod
     def default_command(cls) -> MessageHandler:
@@ -34,12 +41,12 @@ class TranslationBot(TelegramBot):
 
     @classmethod
     def list_language_command(cls) -> CommandHandler:
-        return CommandHandler('list_language', list_language)
+        return CommandHandler("list_language", list_language)
 
     @classmethod
     def set_translation_default_command(cls) -> CommandHandler:
-        return CommandHandler('set_translation_default', set_translation_default)
+        return CommandHandler("set_translation_default", set_translation_default)
 
     @classmethod
     def get_translation_default_command(cls) -> CommandHandler:
-        return CommandHandler('get_translation_default', get_translation_default)
+        return CommandHandler("get_translation_default", get_translation_default)

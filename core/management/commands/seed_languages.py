@@ -5,7 +5,6 @@ from core.models import Language
 
 
 class Command(BaseCommand):
-
     def handle(self, *args, **kwargs):
         for key, value in LANGUAGES.items():
             Language.objects.get_or_create(name=value, code=key)

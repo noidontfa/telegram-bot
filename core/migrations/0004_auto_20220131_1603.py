@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('core', '0003_rename_languagedefault_defaulttranslation'),
+        ("core", "0003_rename_languagedefault_defaulttranslation"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='defaulttranslation',
-            name='dest_name',
+            model_name="defaulttranslation",
+            name="dest_name",
             field=models.CharField(blank=True, max_length=255, null=True),
         ),
         migrations.AddField(
-            model_name='defaulttranslation',
-            name='src_name',
+            model_name="defaulttranslation",
+            name="src_name",
             field=models.CharField(blank=True, max_length=255, null=True),
         ),
     ]

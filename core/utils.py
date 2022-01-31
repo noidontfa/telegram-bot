@@ -2,7 +2,7 @@ from googletrans import Translator
 from googletrans.models import Translated
 
 
-def _translate(text: str, dest='vi', src=None) -> Translated:
+def _translate(text: str, dest="vi", src=None) -> Translated:
     translator = Translator()
     lang = src
     if not lang:
