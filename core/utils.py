@@ -10,3 +10,7 @@ def _translate(text: str, dest="vi", src=None) -> Translated:
         lang = detected.lang
     translation = translator.translate(text, src=lang, dest=dest)
     return translation
+
+
+def _hex_to_text(hex_str: str) -> str:
+    return bytearray.fromhex(hex_str).decode()

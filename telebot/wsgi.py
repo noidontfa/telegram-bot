@@ -11,10 +11,11 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-from core.bot import TranslationBot
+from core.bots import HexToTextBot, TranslationBot
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "telebot.settings")
 # start a bot
 TranslationBot().start()
+HexToTextBot().start()
 
 application = get_wsgi_application()
