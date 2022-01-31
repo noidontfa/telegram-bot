@@ -1,0 +1,5 @@
+Django==3.2.11
+python_telegram_bot==13.10
+googletrans==4.0.0rc1
+prettytable==3.0.0
+python-dotenv==0.19.2
