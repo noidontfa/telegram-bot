@@ -12,11 +12,11 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
-from dotenv import load_dotenv
+from environs import Env
 
-load_dotenv()
+env = Env()
+env.read_env()
 
-get_env = os.environ.get
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,10 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = get_env("SECRET_KEY", "a secret key")
+SECRET_KEY = env.str("SECRET_KEY", "a secret key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = get_env("DEBUG", True)
+DEBUG = env.bool("DEBUG", True)
 
 ALLOWED_HOSTS = ["*"]
 
@@ -82,11 +82,11 @@ WSGI_APPLICATION = "telebot.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": get_env("DATABASE_NAME"),
-        "USER": get_env("DATABASE_USERNAME"),
-        "PASSWORD": get_env("DATABASE_PASSWORD"),
-        "HOST": get_env("DATABASE_HOST", "127.0.0.1"),
-        "PORT": get_env("DATABASE_PORT", "5432"),
+        "NAME": env.str("DATABASE_NAME"),
+        "USER": env.str("DATABASE_USERNAME"),
+        "PASSWORD": env.str("DATABASE_PASSWORD"),
+        "HOST": env.str("DATABASE_HOST", "127.0.0.1"),
+        "PORT": env.str("DATABASE_PORT", "5432"),
     }
 }
 
@@ -128,6 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "static/staticfiles"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -157,5 +158,5 @@ LOGGING = {
 }
 
 
-TRANSLATION_BOT_TOKEN = get_env("TRANSLATION_BOT_TOKEN", None)
-HEX_TO_TEXT_BOT_TOKEN = get_env("HEX_TO_TEXT_BOT_TOKEN", None)
+TRANSLATION_BOT_TOKEN = env.str("TRANSLATION_BOT_TOKEN", None)
+HEX_TO_TEXT_BOT_TOKEN = env.str("HEX_TO_TEXT_BOT_TOKEN", None)

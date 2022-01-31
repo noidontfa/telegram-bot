@@ -2,7 +2,7 @@ venv
 db.sqlite3
 .idea
 .env
-
+.env_production
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
