@@ -17,11 +17,7 @@ services:
     restart: always
     build:
       context: ../
-    command:
-      - gunicorn
-      - telebot.wsgi:application
-      - --bind=0.0.0.0:8000
-      - --workers=3
+    command: /app/app_production_entrypoint.sh
     volumes:
       - static_volume:/app/static/staticfiles
     expose:
