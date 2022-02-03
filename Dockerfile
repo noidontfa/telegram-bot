@@ -23,7 +23,7 @@ RUN \
 
 COPY . .
 
-RUN python manage.py collectstatic --noinput
+RUN chmod 755 app_production_entrypoint.sh
 
 CMD [ "python", "manage.py", "runserver", "0.0.0.0:8000" ]
 
